@@ -1,33 +1,21 @@
-<div class="columns">
-  <div class="column is-half">
-    <section class="hero is-bold is-fullheight">
-      <div class="hero-body">
-        <div class="container has-text-left container-description">
-          <h1 class="title">
-            Print Trend
-          </h1>
-          <p class="subtitle subtitle-1">
-            Atelier au coeur de Paris:<br>
-            Serigraphie, broderie et impression DTG Bénéficiez du savoir faire de nos expert.<br><br>
-          </p>
-          <div>
-            <button class="button is-success">Démarrer la customisation</button>
-          </div>
-          <p class="has-text-grey is-size-7 marketing-1">100% gratuit - Facile à utiliser</p>
-        </div>
-      </div>
-    </section>
-  </div>
-
-  <div class="column">
-    <section class="hero is-bold is-fullheight">
-      <div class="hero-body">
-        <div class="container is-centered">
-          <figure class="image">
-            <img src="{{homeLogo}}">
-          </figure>
-        </div>
-      </div>
-    </section>
+<div class="main-container">
+  <div class="row">
+    <div class="col-sm idea-text">
+      <h1 class="display-4">Hello, world!</h1>
+      <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to
+        featured content or information.</p>
+      <hr class="my-4">
+      <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+      </p>
+      <p>
+        {{loginService.helloWorld}}
+      </p>
+    </div>
+    <div class="col-sm image-logo">
+      <img src="{{homeLogo}}" width="500px" alt="Responsive image">
+    </div>
   </div>
 </div>
+

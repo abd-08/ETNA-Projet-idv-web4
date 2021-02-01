@@ -9,6 +9,8 @@ import {environment} from '../../environments/environment';
 export class HeaderComponent implements OnInit {
 
   introLogo: string;
+  public isMenuCollapsed = true;
+
 
   constructor() {
     this.introLogo = environment.images_urls + 'logo_transparent.png';
