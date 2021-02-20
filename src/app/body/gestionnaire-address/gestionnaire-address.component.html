@@ -1,0 +1,15 @@
+<p></p>
+<div class="container">
+  <div class="panel panel-primary">
+    <div panel="panel-heading">gestionnaire utilisateur</div>
+    <div class="panel-body">
+      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
+        <div class="form-group">
+          <label>Mot clé</label>
+          <input type="text" name="motclé" ngModel required>
+          <button type="submit" class="btn-btn-primary">chercher</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

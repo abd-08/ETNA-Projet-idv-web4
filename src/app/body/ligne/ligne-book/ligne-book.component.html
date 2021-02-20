@@ -1,0 +1,75 @@
+<!--
+<div >
+  <div class="form-group row" [hidden]="!vision">
+    <label class="col-sm col-form-label">{{book.title}}</label>
+    <label class="col-sm col-form-label">{{book.author}}</label>
+    <label class="col-sm col-form-label">{{book.genre}}</label>
+    <label class="col-sm col-form-label">{{book.date_publication}}</label>
+    <label class="col-sm col-form-label">{{book.pages}}</label>
+    <label class="col-sm col-form-label">{{book.quantity}}</label>
+    <button class="col-sm" (click)="modifier()">modifier</button>
+    <button class="col-sm" (click)="supprimer()" class="col-smclass="col-sm>supprimer</button>
+  </div>
+
+  <div class="form-group row" [hidden]="vision">
+    <input class="col-sm col-form-label" [value]="book.title" placeholder="title">
+    <input class="col-sm col-form-label" [value]="book.author" placeholder="author">
+    <input class="col-sm col-form-label" [value]="book.genre" placeholder="genre">
+    <input class="col-sm col-form-label" [value]="book.date_publication" placeholder="10-17-1777">
+    <input class="col-sm col-form-label" [value]="book.price" placeholder="prix">
+    <input class="col-sm col-form-label" [value]="book.pages" placeholder="pages">
+    <input class="col-sm col-form-label" [value]="book.quantity" placeholder="quantity">
+    <button  class="col-sm" (click)="enregistrer()">enregistrer </button>
+    <button  class="col-sm" (click)="supprimer()">supprimer</button>
+  </div>
+</div>
+-->
+
+
+  <th scope="row">
+    <div [hidden]="!vision">{{book.title}}</div>
+    <div [hidden]="vision">
+      <input class="col-sm col-form-label" name="title" [(ngModel)]="book.title" [value]="book.title" placeholder="title">
+    </div>
+  </th>
+  <td scope="row">
+    <div [hidden]="!vision">{{book.author}}</div>
+    <div [hidden]="vision">
+      <input class="col-sm col-form-label" name="author" [(ngModel)]="book.author" [value]="book.author" placeholder="author">
+    </div>
+  </td>
+
+  <td scope="row">
+    <div [hidden]="!vision">{{book.pages}}</div>
+    <div [hidden]="vision">
+      <input type="number" class="col-sm col-form-label" name="pages" [(ngModel)]="book.pages" [value]="book.pages" placeholder="111">
+    </div>
+  </td>
+  <td scope="row">
+    <div [hidden]="!vision">{{book.quantity}}</div>
+    <div [hidden]="vision">
+      <input type="number" class="col-sm col-form-label" name="quantity" [(ngModel)]="book.quantity" [value]="book.quantity" placeholder="10">
+    </div>
+  </td>
+
+  <td scope="row">
+    <div [hidden]="!vision">{{book.date_publication}}</div>
+    <div [hidden]="vision">
+      <input class="col-sm col-form-label" name="date_publication" [(ngModel)]="book.date_publication" [value]="book.date_publication"
+             placeholder="date_publication">
+    </div>
+  </td>
+
+  <td scope="row">
+    <div [hidden]="vision">
+      <button (click)="enregistrer()">enregistrer</button>
+    </div>
+    <div [hidden]="!vision">
+        <button (click)="modifier()">modifier</button>
+    </div>
+  </td>
+  <td>
+    <button (click)="supprimer()">supprimer</button>
+  </td>
+
+

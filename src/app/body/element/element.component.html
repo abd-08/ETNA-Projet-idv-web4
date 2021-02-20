@@ -1,0 +1,50 @@
+<div class="media" [hidden]="!mode_vision">
+  <div class="media-content">
+    <h5 class="card-title">{{ book.title}} </h5>
+  </div>
+</div>
+
+
+<div class="card-image" >
+  <div *ngIf="book.image!=='' && book.image!=null; else elseBlock">
+    <img src="{{book.image}}" [alt]="" style="width: 400px;height: 400px;" alt="Placeholder image"></div>
+  <ng-template #elseBlock> <img src="{{current}}" [alt]="'pas de photo'" style="width: 400px;height: 400px;" alt="Placeholder image"></ng-template>
+</div>
+
+
+
+
+<table [hidden]="!mode_vision" class="f-productDetails-table">
+  <tbody><tr class="f-productDetails-row">
+    <td class="f-productDetails-cell"><span class="f-productDetails-cellValue">Date de parution</span></td>
+    <td class="f-productDetails-cell">
+      <b class="f-productDetails-cellValue" >{{book.date_publication}} </b>
+    </td>
+  </tr>
+  <tr class="f-productDetails-row">
+    <td class="f-productDetails-cell"><span class="f-productDetails-cellValue">Autheur</span></td>
+    <td class="f-productDetails-cell">
+      <b class="f-productDetails-cellValue" ><a class="f-productDetails-celllink" >{{ book.author}}</a> </b>
+    </td>
+  </tr>
+
+
+  <tr class="f-productDetails-row">
+    <td class="f-productDetails-cell"><span class="f-productDetails-cellValue">Nombre de pages</span></td>
+    <td class="f-productDetails-cell">
+      <b class="f-productDetails-cellValue">{{book.pages}} </b>
+    </td>
+  </tr>
+
+  <tr class="f-productDetails-row">
+    <td class="f-productDetails-cell"><span class="f-productDetails-cellValue">Description</span></td>
+    <td class="f-productDetails-cell">
+      <b class="f-productDetails-cellValue">{{book.description}} </b>
+    </td>
+  </tr>
+  </tbody></table>
+
+<button (click)="changeMode()" [hidden]="!mode_vision" class="btn btn-primary">Modifier</button>
+
+
+<app-addelement [hidden]="mode_vision" [book]="book" [ajout]="false"></app-addelement>

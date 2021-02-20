@@ -1,0 +1,56 @@
+<form  [hidden]="visualisation"  #addAddressForm="ngForm" (ngSubmit)="creerAdress(addAddressForm)">
+
+  <div class="form-group row">
+    <label for="street"  class="col-sm-2 col-form-label">N° et rue</label>
+    <div class="col-sm-10">
+      <input type="text"  required  [(ngModel)]="address.street" class="form-control" value="" id="street" placeholder="numéro et rue">
+    </div>
+  </div>
+
+  <div class="form-group row">
+    <label for="city" class="col-sm-2 col-form-label">Ville</label>
+    <div class="col-sm-10">
+      <input type="text" required [(ngModel)]="address.city" class="form-control" id="city" placeholder="ville">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="country" class="col-sm-2 col-form-label">Pays</label>
+    <div class="col-sm-10">
+      <input type="text"  [(ngModel)]="address.country" required class="form-control" id="country" placeholder="pays">
+    </div>
+  </div>
+  <div class="form-group row">
+    <label for="postalcode" class="col-sm-2 col-form-label">Code postale</label>
+    <div class="col-sm-10">
+      <input type="text"  required  [(ngModel)]="address.postal_code" class="form-control" id="postalcode" placeholder="code postale">
+    </div>
+  </div>
+
+  <button type="submit"  class="btn btn-primary">enregistrer</button>
+</form>
+
+
+
+
+<table [hidden]="!visualisation">
+  <tbody>
+  <tr>
+    <td >N° et rue</td>
+    <td ><b>{{address.street}} </b> </td>
+  </tr><tbody>
+  <tr>
+    <td >Ville</td>
+    <td ><b>{{address.city}} </b> </td>
+  </tr><tbody>
+  <tr>
+    <td >Code postale</td>
+    <td ><b>{{address.postal_code}} </b> </td>
+  </tr><tbody>
+  <tr>
+    <td >Pays</td>
+    <td ><b>{{address.country}} </b> </td>
+  </tr>
+  </tbody></table>
+
+
+<button (click)="change_mode()" [hidden]="!visualisation">modifier</button>
