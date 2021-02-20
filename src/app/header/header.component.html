@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
   <a class="navbar-brand" [routerLink]="'.'">
-    <img [src]="introLogo" width="112" height="30">
+    <img alt="image" [src]="introLogo" width="112" height="30">
   </a>
 
   <!-- Step 3: Toggle the value of the property when the toggler button is clicked. -->
@@ -28,26 +28,33 @@
             <i class="fas fa-user-circle fa-2x"></i>
           </a>
           <div ngbDropdownMenu aria-labelledby="navbarDropdown3" class="dropdown-menu">
-            <form class="px-4 py-3">
-              <div class="form-group">
-                <label for="exampleDropdownFormEmail1">Email address</label>
-                <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
-              </div>
-              <div class="form-group">
-                <label for="exampleDropdownFormPassword1">Password</label>
-                <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-              </div>
-              <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                <label class="form-check-label" for="dropdownCheck">
-                  Remember me
-                </label>
-              </div>
-              <button type="submit" class="btn btn-primary">Sign in</button>
-            </form>
-            <div class="dropdown-divider"></div>
-            <button ngbDropdownItem>New around here? Sign up</button>
-            <button ngbDropdownItem>Forgot password?</button>
+            <div id="login" [hidden]="checkConnected()" >
+              <form class="px-4 py-3">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email address</label>
+                  <input type="email" [value]="username"  class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input type="password" [value]="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" (click)="makeAuth()" class="btn btn-primary">Sign in</button>
+              </form>
+              <div class="dropdown-divider"></div>
+              <button routerLink="/user" ngbDropdownItem>New around here? Sign up</button>
+<!--              <button ngbDropdownItem>Forgot password?</button>-->
+            </div>
+            <div id="logout" [hidden]="!checkConnected()">
+              <button routerLink="/" ngbDropdownItem>Modifier</button>
+              <button type="submit" (click)="disconnected()" class="btn btn-primary">logout</button>
+              <button type="submit" (click)="delete()" class="btn btn-primary">supprimer</button>
+            </div>
           </div>
         </li>
       </ul>
