@@ -8,7 +8,6 @@ import { FooterComponent } from './footer/footer.component';
 import { BodyComponent } from './body/body.component';
 import { MainIdeaComponent } from './body/main-idea/main-idea.component';
 import { ProductsComponent } from './body/products/products.component';
-import { LoginComponent } from './body/login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ElementComponent } from './body/element/element.component';
 import { AddelementComponent } from './body/addelement/addelement.component';
@@ -36,7 +35,6 @@ import {MatSelectModule} from '@angular/material/select';
     BodyComponent,
     MainIdeaComponent,
     ProductsComponent,
-    LoginComponent,
     ElementComponent,
     AddelementComponent,
     AddressComponent,
@@ -45,7 +43,7 @@ import {MatSelectModule} from '@angular/material/select';
     MessageModalComponent,
     GestionnaireUserComponent,
     GestionnaireAddressComponent,
-    GestionnaireBookComponent,
+    GestionnaireBookComponent
   ],
   imports: [
     BrowserModule,

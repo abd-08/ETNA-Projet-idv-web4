@@ -23,23 +23,12 @@ export class AddelementComponent implements OnInit {
 
   addbook() {
     console.log(this.book);
-    this.bookService.addBook((result) => {
-        console.log(result);
-        console.log('book added');
-      },
-      (error) => {
-        console.log(error);
-      }, this.book);
+    this.bookService.ajouter(this.book);
   }
 
   update(){
-    this.bookService.updateBook((result) => {
-        console.log(result);
-        console.log("book updated");
-      },
-      (error) => {
-        console.log(error);
-      }, this.book , 'http://127.0.0.1:8090/book/'+this.book.id);
+    console.log(this.book);
+    this.bookService.enregistrer(this.book);
   }
 
 }

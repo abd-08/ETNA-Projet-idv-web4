@@ -1,9 +1,9 @@
 <button routerLink="/addelement" ></button>
 <div class="card-columns">
-  <div class="card mb-3" *ngFor="let book of listBook">
+  <div class="card mb-4" *ngFor="let book of listBook">
     <div *ngIf="book.image!=='' && book.image!=null; else elseBlock" routerLink="/element">
-      <img src="{{book.image}}" routerLink="/element" [alt]="" style="width: 400px;height: 400px;" alt="Placeholder image"></div>
-    <ng-template #elseBlock> <img src="{{current}}" [alt]="'pas de photo'" style="width: 400px;height: 400px;" alt="Placeholder image"></ng-template>
+      <img src="{{book.image}}" routerLink="/element" [alt]="" style="width: 250px;height: 25px;" alt="Placeholder image"></div>
+    <ng-template #elseBlock> <img src="{{current}}" [alt]="'pas de photo'" style="width: 250px;height: 250px;" alt="Placeholder image"></ng-template>
 
     <div class="card-body">
       <h5 class="card-title" (click)="bookOpened()" routerLink="/element">{{ PrintText(book.title, 30) }} </h5>

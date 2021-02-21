@@ -1,8 +1,9 @@
 import DateTimeFormat = Intl.DateTimeFormat;
-import {BookService} from '../services/book.service';
 
 export class Book {
-  constructor() {}
+  constructor() {
+    this.vision=false;
+  }
 
   id: number;
 
@@ -26,6 +27,7 @@ export class Book {
 
   last_modification_date: DateTimeFormat;
 
+  vision:boolean; //variable pour gère l'état du livre si ilest en consultation ou en modification
 
 
 

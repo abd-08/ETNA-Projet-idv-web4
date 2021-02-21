@@ -1,69 +1,100 @@
-<table class="table table-bordered table-striped">
+<table id="gestionnaire" class="table table-bordered table-striped">
   <thead>
   <tr>
     <th class="text-center" *ngFor="let h of headElements">
       <small>{{h}}</small></th>
+    <th [hidden]="mode_ajout"><button (click)="change_mode() ">nouveau</button></th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let book of list_book">
-<!--    <app-ligne-book [book]="p"></app-ligne-book>-->
-
-
-
+  <tr [hidden]="mode_ajout">
     <th class="text-nowrap" scope="row">
-      <div [hidden]="!vision">{{book.title}}</div>
-      <div [hidden]="vision">
+        <input class="col-sm col-form-label" name="title" [(ngModel)]="newBook.title" [value]="newBook.title" placeholder="title">
+    </th>
+    <td>
+        <input class="col-sm col-form-label" name="author" [(ngModel)]="newBook.author" [value]="newBook.author" placeholder="author">
+    </td>
+
+    <td>
+        <input type="number" class="col-sm col-form-label" name="pages" [(ngModel)]="newBook.pages" [value]="newBook.pages" placeholder="111">
+    </td>
+    <td>
+      <div>
+        <input type="number" class="col-sm col-form-label" name="quantity" [(ngModel)]="newBook.quantity" [value]="newBook.quantity" placeholder="10">
+      </div>
+    </td>
+    <td>
+        <input type="number" class="col-sm col-form-label" name="price" [(ngModel)]="newBook.price" [value]="newBook.price" placeholder="10">
+    </td>
+
+    <td>
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="date_publication" [(ngModel)]="newBook.date_publication" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar"  (click)="d.toggle()" type="button"></button>
+        </div>
+    </td>
+    <td>
+        <button routerLink="/gestionnaireBook" (click)="this.ajouter(newBook)">ajouter</button>
+    </td>
+  </tr>
+
+  <tr *ngFor="let book of list_book">
+    <th class="text-nowrap" scope="row">
+      <div [hidden]="book.vision">{{book.title}}</div>
+      <div [hidden]="!book.vision">
         <input class="col-sm col-form-label" name="title" [(ngModel)]="book.title" [value]="book.title" placeholder="title">
       </div>
     </th>
     <td>
-      <div [hidden]="!vision">{{book.author}}</div>
-      <div [hidden]="vision">
+      <div [hidden]="book.vision">{{book.author}}</div>
+      <div [hidden]="!book.vision">
         <input class="col-sm col-form-label" name="author" [(ngModel)]="book.author" [value]="book.author" placeholder="author">
       </div>
     </td>
 
     <td>
-      <div [hidden]="!vision">{{book.pages}}</div>
-      <div [hidden]="vision">
+      <div [hidden]="book.vision">{{book.pages}}</div>
+      <div [hidden]="!book.vision">
         <input type="number" class="col-sm col-form-label" name="pages" [(ngModel)]="book.pages" [value]="book.pages" placeholder="111">
       </div>
     </td>
     <td>
-      <div [hidden]="!vision">{{book.quantity}}</div>
-      <div [hidden]="vision">
+      <div [hidden]="book.vision">{{book.quantity}}</div>
+      <div [hidden]="!book.vision">
         <input type="number" class="col-sm col-form-label" name="quantity" [(ngModel)]="book.quantity" [value]="book.quantity" placeholder="10">
       </div>
-    </td>  <td>
-      <div [hidden]="!vision">{{book.price}}</div>
-      <div [hidden]="vision">
+    </td>
+    <td>
+      <div [hidden]="book.vision">{{book.price}}</div>
+      <div [hidden]="!book.vision">
         <input type="number" class="col-sm col-form-label" name="price" [(ngModel)]="book.price" [value]="book.price" placeholder="10">
       </div>
     </td>
 
     <td>
-      <div [hidden]="!vision">{{book.date_publication}}</div>
-      <div [hidden]="vision">
-        <input class="col-sm col-form-label" name="date_publication" [(ngModel)]="book.date_publication" [value]="book.date_publication"
-               placeholder="date_publication">
+      <div [hidden]="book.vision">{{book.date_publication}}</div>
+      <div [hidden]="!book.vision">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="date_publication" [(ngModel)]="book.date_publication" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
       </div>
     </td>
+
 
     <td>
-      <div [hidden]="vision">
-        <button (click)="this.bookService.enregistrer(book)">enregistrer</button>
+      <div [hidden]="!book.vision">
+        <button (click)="this.enregistrer(book)">enregistrer</button>
       </div>
-      <div [hidden]="!vision">
-        <button>modifier</button>
+      <div [hidden]="book.vision">
+        <button  (click)="this.modifier(book)">modifier</button>
       </div>
     </td>
     <td>
-      <button (click)="this.bookService.supprimer(book)">supprimer</button>
+      <button (click)="this.supprimer(book)">supprimer</button>
     </td>
-
-
-
   </tr>
   </tbody>
 </table>
