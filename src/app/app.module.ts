@@ -26,9 +26,6 @@ import {BookService} from './services/book.service';
 import {AddressService} from './services/address.service';
 import { GestionnaireBookComponent } from './body/gestionnaire-book/gestionnaire-book.component';
 import {AuthenticationService} from './services/authentication.service';
-import { LigneBookComponent } from './body/ligne/ligne-book/ligne-book.component';
-import { LigneUserComponent } from './body/ligne/ligne-user/ligne-user.component';
-import { LigneAddressComponent } from './body/ligne/ligne-address/ligne-address.component';
 import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
@@ -49,9 +46,6 @@ import {MatSelectModule} from '@angular/material/select';
     GestionnaireUserComponent,
     GestionnaireAddressComponent,
     GestionnaireBookComponent,
-    LigneBookComponent,
-    LigneUserComponent,
-    LigneAddressComponent
   ],
   imports: [
     BrowserModule,

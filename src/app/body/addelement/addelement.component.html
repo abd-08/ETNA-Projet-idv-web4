@@ -62,7 +62,7 @@
         </div>
     </div></div>
 
-  <button type="submit" (click)="addOrUpdate()" class="btn btn-primary">Sauvegarder</button>
-  <button type="submit" [hidden]="ajout" (click)="supprimer()" class="btn btn-primary">Supprimer</button>
+  <button type="submit" class="btn btn-primary">Sauvegarder</button>
+  <button type="submit" [hidden]="ajout" (click)="this.bookService.supprimer(book)" class="btn btn-primary">Supprimer</button>
 </form>
 

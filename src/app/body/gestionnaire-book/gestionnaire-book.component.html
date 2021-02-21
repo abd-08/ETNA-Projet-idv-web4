@@ -1,47 +1,69 @@
-<!--
-<p></p>
-<div class="container">
-  <div class="panel panel-primary">
-    <div panel="panel-heading">gestionnaire book</div>
-    <div class="panel-body">
-      <form #f="ngForm" (ngSubmit)="onSearch(f.value)">
-        <div class="form-group">
-          <label>Mot clé</label>
-          <input type="text" name="motclé" ngModel required>
-          <button type="submit" class="btn-btn-primary">chercher</button>
-        </div>
-      </form>
-
-      <div class="form-group row">
-        <div><label class="col-sm col-form-label">title</label></div>
-        <div><label class="col-sm col-form-label">p.author</label></div>
-        <div><label class="col-sm col-form-label">p.genre</label></div>
-        <div><label class="col-sm col-form-label">p.date_publication</label></div>
-        <div><label class="col-sm col-form-label">p.pages</label></div>
-        <div><label class="col-sm col-form-label">quantity</label></div>
-      </div>
-      <div class="form-group " >
--->
-
-<table mdbTable>
+<table class="table table-bordered table-striped">
   <thead>
   <tr>
-    <th *ngFor="let head of headElements" >{{head}} </th>
+    <th class="text-center" *ngFor="let h of headElements">
+      <small>{{h}}</small></th>
   </tr>
   </thead>
   <tbody>
-  <tr mdbTableCol *ngFor="let p of list_book">
-    <app-ligne-book [book]="p"></app-ligne-book>
+  <tr *ngFor="let book of list_book">
+<!--    <app-ligne-book [book]="p"></app-ligne-book>-->
+
+
+
+    <th class="text-nowrap" scope="row">
+      <div [hidden]="!vision">{{book.title}}</div>
+      <div [hidden]="vision">
+        <input class="col-sm col-form-label" name="title" [(ngModel)]="book.title" [value]="book.title" placeholder="title">
+      </div>
+    </th>
+    <td>
+      <div [hidden]="!vision">{{book.author}}</div>
+      <div [hidden]="vision">
+        <input class="col-sm col-form-label" name="author" [(ngModel)]="book.author" [value]="book.author" placeholder="author">
+      </div>
+    </td>
+
+    <td>
+      <div [hidden]="!vision">{{book.pages}}</div>
+      <div [hidden]="vision">
+        <input type="number" class="col-sm col-form-label" name="pages" [(ngModel)]="book.pages" [value]="book.pages" placeholder="111">
+      </div>
+    </td>
+    <td>
+      <div [hidden]="!vision">{{book.quantity}}</div>
+      <div [hidden]="vision">
+        <input type="number" class="col-sm col-form-label" name="quantity" [(ngModel)]="book.quantity" [value]="book.quantity" placeholder="10">
+      </div>
+    </td>  <td>
+      <div [hidden]="!vision">{{book.price}}</div>
+      <div [hidden]="vision">
+        <input type="number" class="col-sm col-form-label" name="price" [(ngModel)]="book.price" [value]="book.price" placeholder="10">
+      </div>
+    </td>
+
+    <td>
+      <div [hidden]="!vision">{{book.date_publication}}</div>
+      <div [hidden]="vision">
+        <input class="col-sm col-form-label" name="date_publication" [(ngModel)]="book.date_publication" [value]="book.date_publication"
+               placeholder="date_publication">
+      </div>
+    </td>
+
+    <td>
+      <div [hidden]="vision">
+        <button (click)="this.bookService.enregistrer(book)">enregistrer</button>
+      </div>
+      <div [hidden]="!vision">
+        <button>modifier</button>
+      </div>
+    </td>
+    <td>
+      <button (click)="this.bookService.supprimer(book)">supprimer</button>
+    </td>
+
+
+
   </tr>
   </tbody>
 </table>
-<!--<div class="form-group row">
-  <label class="col-sm col-form-label">{{p.title}}</label>
-  <label class="col-sm col-form-label">{{p.author}}</label>
-  <label class="col-sm col-form-label">{{p.description.substring(0, 10)}}</label>
-  <label class="col-sm col-form-label">{{p.genre}}</label>
-  <label class="col-sm col-form-label">{{p.date_publication}}</label>
-  <label class="col-sm col-form-label">{{p.pages}}</label>
-  <label class="col-sm col-form-label">{{p.quantity}}</label>
-
-</div>-->

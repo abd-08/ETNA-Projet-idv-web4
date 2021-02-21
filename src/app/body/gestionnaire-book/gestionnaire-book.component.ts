@@ -10,13 +10,15 @@ import {BookService} from '../../services/book.service';
 })
 export class GestionnaireBookComponent implements OnInit {
   list_book: [{}];
-  headElements: ["Titre","Auteur","Genre","Pages","Quatités","Date de sortie"];
+  headElements:string[] = ["Titre","Auteur","Genre","Pages","Quatités","Prix","Sortie","",""];
+  vision: boolean = false;
 
   constructor(public authService: AuthenticationService, public bookService:BookService) { }
 
   ngOnInit(): void {
     this.bookService.getBook((result) => {
         console.log(result);
+        console.log(this.headElements);
         this.list_book = result;
       },
       (error) => {
@@ -26,5 +28,11 @@ export class GestionnaireBookComponent implements OnInit {
 
   onSearch(value: any) {
 
+  }
+
+
+
+  supprimer(book){
+    this.bookService.supprimer(book);
   }
 }

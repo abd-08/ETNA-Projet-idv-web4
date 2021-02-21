@@ -9,9 +9,7 @@ import {UserComponent} from './body/user/user.component';
 import {GestionnaireUserComponent} from './body/gestionnaire-user/gestionnaire-user.component';
 import {GestionnaireAddressComponent} from './body/gestionnaire-address/gestionnaire-address.component';
 import {GestionnaireBookComponent} from './body/gestionnaire-book/gestionnaire-book.component';
-import {LigneBookComponent} from './body/ligne/ligne-book/ligne-book.component';
-import {LigneUserComponent} from './body/ligne/ligne-user/ligne-user.component';
-import {LigneAddressComponent} from './body/ligne/ligne-address/ligne-address.component';
+
 
 const appRoutes: Routes = [
   {path: 'home', component: MainIdeaComponent},
@@ -23,9 +21,6 @@ const appRoutes: Routes = [
   {path: 'gestionnaireBook', component: GestionnaireBookComponent},
   {path: 'gestionnaireAddress', component: GestionnaireAddressComponent},
   {path: 'address', component: AddressComponent},
-  {path: 'ligneb', component: LigneBookComponent},
-  {path: 'ligneu', component: LigneUserComponent},
-  {path: 'lignea', component: LigneAddressComponent},
   {path: '**', redirectTo: '/home', pathMatch: 'full'},
 ];
 

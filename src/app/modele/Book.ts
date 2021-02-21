@@ -1,6 +1,8 @@
 import DateTimeFormat = Intl.DateTimeFormat;
+import {BookService} from '../services/book.service';
 
 export class Book {
+  constructor() {}
 
   id: number;
 
@@ -13,6 +15,7 @@ export class Book {
   image: string;
 
   price:number;
+
   pages:number;
 
   quantity:number;
@@ -22,5 +25,8 @@ export class Book {
   creation_date: DateTimeFormat;
 
   last_modification_date: DateTimeFormat;
+
+
+
 
 }

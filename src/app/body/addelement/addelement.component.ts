@@ -42,27 +42,4 @@ export class AddelementComponent implements OnInit {
       }, this.book , 'http://127.0.0.1:8090/book/'+this.book.id);
   }
 
-  supprimer(){
-    let url = 'http://127.0.0.1:8090/book';
-    this.bookService.deleteBook(
-      (result) => {
-        console.log(result);
-        console.log("book supprimer");
-      },
-      (error) => {
-        console.log(error);
-      }, url+"/"+this.book.id)
-  }
-
-
-  addOrUpdate() {
-    if (this.ajout){
-      this.addbook();
-      this.ajout = false;
-    }
-    else {
-      this.update()
-      this.ajout=false;
-    }
-  }
 }

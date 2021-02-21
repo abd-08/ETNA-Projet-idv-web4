@@ -48,6 +48,17 @@ export class BookService {
       });
   }
 
+  enregistrer(book:Book){
+    this.updateBook((result) => {
+         console.log(result);
+         console.log("book updated");
+       },
+       (error) => {
+         console.log(error);
+       }, book , 'http://127.0.0.1:8090/book/'+book.id);
+  }
+
+
   /**
    * Delete an existing Customer object in the Backend server data base.
    * @param customer
@@ -64,12 +75,23 @@ export class BookService {
         return error;
       });
   }
+  supprimer(book:Book){
+    this.deleteBook(
+      (result) => {
+        console.log(result);
+        console.log("book supprimer");
+      },
+      (error) => {
+        console.log(error);
+      }, "http://127.0.0.1:8090/book/"+book.id)
+
+  }
+
 
 
   getBook(onSuccess: Function, onFailure: Function,url){
     let Request =  this.httpService.makeGetRequestToken(url);
     Request.subscribe((result) => {
-
         onSuccess(result);
         console.log(result);
         return result;
