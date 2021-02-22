@@ -18,11 +18,11 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="/products" routerLinkActive="active" (click)="isMenuCollapsed = true">Product</a>
       </li><li class="nav-item">
-        <a class="nav-link" routerLink="/gestionnaireUser" routerLinkActive="active" (click)="isMenuCollapsed = true">Gestionnaire User</a>
+        <a class="nav-link" routerLink="/gestionnaireUser" [hidden]="this.hide_admin_menu" routerLinkActive="active" (click)="isMenuCollapsed = true">Gestionnaire User</a>
       </li><li class="nav-item">
-        <a class="nav-link" routerLink="/gestionnaireBook" routerLinkActive="active" (click)="isMenuCollapsed = true">Gestionnaire livre</a>
+        <a class="nav-link" routerLink="/gestionnaireBook" [hidden]="this.hide_admin_menu" routerLinkActive="active" (click)="isMenuCollapsed = true">Gestionnaire livre</a>
       </li><li class="nav-item">
-        <a class="nav-link" routerLink="/gestionnaireAddress" routerLinkActive="active" (click)="isMenuCollapsed = true">Gestionnaire d'adresse</a>
+        <a class="nav-link" routerLink="/gestionnaireAddress" [hidden]="this.hide_admin_menu" routerLinkActive="active" (click)="isMenuCollapsed = true">Gestionnaire d'adresse</a>
       </li>
     </ul>
 
@@ -57,7 +57,7 @@
 <!--              <button ngbDropdownItem>Forgot password?</button>-->
             </div>
             <div id="logout" [hidden]="!checkConnected()">
-              <button routerLink="/" ngbDropdownItem>Modifier</button>
+              <button routerLink="/" (click)="j()" ngbDropdownItem>Modifier</button>
               <button type="submit" (click)="disconnected()" class="btn btn-primary">logout</button>
               <button type="submit" (click)="delete()" class="btn btn-primary">supprimer</button>
             </div>
